@@ -1,9 +1,13 @@
 const express = require("express")
 const app = express()
 const cors = require("cors")
+const path = require("path")
+
 const profileModel = require("./models/userProfile.model")
 app.use(cors())
 app.use(express.json())
+app.use(express.static("./public"));
+
 
 /*post api*/
 app.post("/userprofiles", async (req, res) =>{
@@ -84,6 +88,8 @@ app.put("/userprofiles/:id", async (req, res) => {
     updatedProfile
   });
 });
+
+
 
 
 module.exports = app 
